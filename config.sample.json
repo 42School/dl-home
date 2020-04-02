@@ -1,0 +1,6 @@
+{
+    "KEY":"your-intra-app-secret",
+    "PATH":"/mnt/homes/%s.img",
+    "HOST":"0.0.0.0",
+    "PORT":1337
+}
