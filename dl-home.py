@@ -25,7 +25,7 @@ def open_and_load_config():
         print("File [%s] doesn't exist, aborting." % (CONFIG_FILE))
         sys.exit(1)
 
-def check_login(login):
+def check_login(key, login):
     if (key != config["KEY"]):
         abort(401, "Sorry, access denied.")
     if (not path.exists(config["PATH"] % login)):
@@ -33,7 +33,7 @@ def check_login(login):
         
 @route('/dl/<key>/<login>')
 def dl(key, login):
-    check_login(login)
+    check_login(key, login)
     # one at a time
     if dl_lock.acquire(False):
         subprocess.call(["./img2tgz.sh", login])
@@ -44,7 +44,7 @@ def dl(key, login):
 
 @route('/check/<key>/<login>')
 def check(key, login):
-    check_login(login)
+    check_login(key, login)
     return "ok"
 
 if __name__ == "__main__":
