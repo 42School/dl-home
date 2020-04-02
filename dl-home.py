@@ -2,7 +2,7 @@
 
 from bottle import abort, route, run, request, static_file
 from os import path
-import subprocess, json, sys
+import os, subprocess, json, sys
 import threading, time
 
 # use your intra guacamole app secret
