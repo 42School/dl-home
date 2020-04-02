@@ -40,7 +40,7 @@ def dl(key, login):
         dl_lock.release()
         return static_file("%s.tar.gz" % login, root="/tmp/img2tgz/")
     else:
-        return "busy"
+        abort(503, "Service busy, try again later")
 
 @route('/check/<key>/<login>')
 def check(key, login):
