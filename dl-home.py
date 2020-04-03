@@ -7,8 +7,6 @@ import threading, time
 
 # use your intra guacamole app secret
 
-KEY='d38e24ae1b39dc1145f82e40ebfa4bbc36e3beb576380e40981457e1a5e6d122'
-
 dl_lock = threading.Lock()
 
 """
